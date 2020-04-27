@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ODP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jumlah_ODP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ODPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ODPResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_Positif">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jumlahPDP_Positif" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_PositifResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PDP_PositifResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_Sembuh">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jumlahPDP_Sembuh" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_SembuhResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PDP_SembuhResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_Meninggal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="jumlahPDP_Meninggal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDP_MeninggalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PDP_MeninggalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ODPSoapIn">
+    <wsdl:part name="parameters" element="tns:ODP" />
+  </wsdl:message>
+  <wsdl:message name="ODPSoapOut">
+    <wsdl:part name="parameters" element="tns:ODPResponse" />
+  </wsdl:message>
+  <wsdl:message name="PDP_PositifSoapIn">
+    <wsdl:part name="parameters" element="tns:PDP_Positif" />
+  </wsdl:message>
+  <wsdl:message name="PDP_PositifSoapOut">
+    <wsdl:part name="parameters" element="tns:PDP_PositifResponse" />
+  </wsdl:message>
+  <wsdl:message name="PDP_SembuhSoapIn">
+    <wsdl:part name="parameters" element="tns:PDP_Sembuh" />
+  </wsdl:message>
+  <wsdl:message name="PDP_SembuhSoapOut">
+    <wsdl:part name="parameters" element="tns:PDP_SembuhResponse" />
+  </wsdl:message>
+  <wsdl:message name="PDP_MeninggalSoapIn">
+    <wsdl:part name="parameters" element="tns:PDP_Meninggal" />
+  </wsdl:message>
+  <wsdl:message name="PDP_MeninggalSoapOut">
+    <wsdl:part name="parameters" element="tns:PDP_MeninggalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="ODP">
+      <wsdl:input message="tns:ODPSoapIn" />
+      <wsdl:output message="tns:ODPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Positif">
+      <wsdl:input message="tns:PDP_PositifSoapIn" />
+      <wsdl:output message="tns:PDP_PositifSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Sembuh">
+      <wsdl:input message="tns:PDP_SembuhSoapIn" />
+      <wsdl:output message="tns:PDP_SembuhSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Meninggal">
+      <wsdl:input message="tns:PDP_MeninggalSoapIn" />
+      <wsdl:output message="tns:PDP_MeninggalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ODP">
+      <soap:operation soapAction="http://tempuri.org/ODP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Positif">
+      <soap:operation soapAction="http://tempuri.org/PDP_Positif" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Sembuh">
+      <soap:operation soapAction="http://tempuri.org/PDP_Sembuh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Meninggal">
+      <soap:operation soapAction="http://tempuri.org/PDP_Meninggal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ODP">
+      <soap12:operation soapAction="http://tempuri.org/ODP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Positif">
+      <soap12:operation soapAction="http://tempuri.org/PDP_Positif" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Sembuh">
+      <soap12:operation soapAction="http://tempuri.org/PDP_Sembuh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PDP_Meninggal">
+      <soap12:operation soapAction="http://tempuri.org/PDP_Meninggal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:17283/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:17283/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
